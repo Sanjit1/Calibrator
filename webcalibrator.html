@@ -3,6 +3,7 @@
 <head>
     <title>Document</title>
     <link rel="stylesheet" href="styles.css">
+    
   
 </head>
 <body>
@@ -21,28 +22,29 @@
         <h3>Enter Temperature Resistance Pairs</h3>
         <div class="vbox">
             <h4 class="special">Resistance  (Ω)</h4>
-            R1: <input type="number" name="R1"><br>
-            R2: <input type="number" name="R2"><br>
-            R3: <input type="number" name="R3"><br>
+            R1: <input id = "R1" type="number" name="R1"><br>
+            R2: <input id = "R2" type="number" name="R2"><br>
+            R3: <input id = "R3" type="number" name="R3"><br>
         </div>
         <div class="vbox">
             <h4 class="special">Temperature (°C)</h4>
-            T1: <input type="number" name="T1"><br>
-            T2: <input type="number" name="T2"><br>
-            T3: <input type="number" name="T3"><br>
+            T1: <input id = "T1" type="number" name="T1"><br>
+            T2: <input id = "T2" type="number" name="T2"><br>
+            T3: <input id = "T3" type="number" name="T3"><br>
         </div>
         <br>
-        <button type="button">Calculate</button>
+        <button id="enter" type="button">Calculate</button>
         <h3>Coefficients</h3>
             <div class="vbox">
-                <h4>A = </h4>
-                <h4>B = </h4>
-                <h4>C = </h4>
+                <h4 id = "A">A = </h4>
+                <h4 id = "B">B = </h4>
+                <h4 id = "C">C = </h4>
             </div>
     </div>
     <div class="vbox"></div>
 </div>
-
+<script type="text/javascript" src ="math.js"></script>
+<script type="text/javascript" src="calibrator.js"></script>
 
 
 
