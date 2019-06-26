@@ -1,5 +1,3 @@
-
-  
 var button = document.getElementById("enter");
 var R1Html = document.getElementById("R1");
 var R2Html = document.getElementById("R2");
@@ -27,10 +25,19 @@ button.onclick = function(){
         A = 1/T1-C*(Math.log(R1))*(Math.log(R1))*(Math.log(R1))-B*Math.log(R1);
 
         
+        const M1 = math.matrix([
+            [1,ln(R1),cb(ln(R1))],
+            [1,ln(R2),cb(ln(R2))],
+            [1,ln(R3),cb(ln(R3))]
+        ])
+
+        const M2 = math.matrix([[1/T1],[1/T2],[1/T3]])
+
+        //const M3 = math.lusolve(math.lup(M1),M2)
 
 
-        CHtml.innerHTML = C;
-        BHtml.innerHTML = B;
+        CHtml.innerHTML = typeof (M1);
+        BHtml.innerHTML = typeof (M2);
         AHtml.innerHTML = A;
 
     }
@@ -40,7 +47,7 @@ button.onclick = function(){
     }
 
     function ln(n){
-        Math.log(n,Math.E);
+        math.log(n,math.E);
     }
 };
 
