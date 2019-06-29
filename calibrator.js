@@ -36,8 +36,8 @@ button.onclick = function(){
         //const M3 = math.lusolve(math.lup(M1),M2)
 
 
-        CHtml.innerHTML = typeof (M1);
-        BHtml.innerHTML = typeof (M2);
+        CHtml.innerHTML = C;
+        BHtml.innerHTML = B;
         AHtml.innerHTML = A;
 
     }
