@@ -56,9 +56,12 @@ li a:hover:not(.active) {
   color: firebrick;
 }
 
-#graph{
+#calculator{
   height: 360px !important;
   width: 640px !important;
+  margin-left:150px;
+  display: flex;
+  padding-left: 50px;
 }
 
 

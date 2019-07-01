@@ -11,11 +11,14 @@ var CHtml = document.getElementById("C");
 var C;
 var B;
 var A;
+var Asn;
+var Bsn;
+var Csn;
 var test = document.getElementById("test");
 var testInput = document.getElementById("testResist");
 var answerTemp = document.getElementById("calculateTemp");
-var ctx = document.getElementById('graph').getContext('2d');
-var chart;
+var elt =document.getElementById('calculator');
+var calculator = Desmos.GraphingCalculator(elt,{expressions:true});
 
 
 
@@ -42,69 +45,37 @@ enter.onclick = function(){
         A = M3[0];
         B = M3[1];
         C = M3[2];
+        Asn = (A+'').replace("e","10^");
+        Bsn = (B+'').replace("e","10^");
+        Csn = (C+'').replace("e","10^");
 
-        CHtml.innerHTML = "C =" + C;
-        BHtml.innerHTML = "B =" + B;
-        AHtml.innerHTML = "A =" + A;
-        
+        CHtml.innerHTML = "C =" + Csn;
+        BHtml.innerHTML = "B =" + Bsn;
+        AHtml.innerHTML = "A =" + Asn;
+
+        var Adsn = (A+'').replace("e-","/10^");
+        var Bdsn = (B+'').replace("e-","/10^");
+        var Cdsn = (C+'').replace("e-","/10^");
+
+    
+    var equation ='x=1/(A+(B*\ln(y))+(C*\ln(y)^3))-273.15';
+    calculator.setExpressions([
+        {id:'curve', latex:equation ,color: Desmos.Colors.GREEN},
+        {id:'A', latex: 'A = '+ Adsn ,color: Desmos.Colors.BLUE},
+        {id:'B', latex: 'B = '+ Bdsn ,color: Desmos.Colors.BLUE},
+        {id:'C', latex: 'C = '+ Cdsn ,color: Desmos.Colors.BLUE},
+    ]);
+
+    calculator.setMathBounds({
+        left: -10,
+        right: 100,
+        bottom: 1,
+        top: 50000
+      });
     }
-    var dta = new Array(999);
-
-    for(var i = 1; i<1000;i++){
-       dta[i]={
-           x:(i*50),
-           y: getTemp(i*50)
-        };
-    }
-
-    chart = new Chart(ctx, {
-        // The type of chart we want to create
-        type: 'line',
-    
-        // The data for our dataset
-        
     
     
-        data: {
-            datasets: [{
-                label: 'Temperature Resistance Graph',
-                borderColor: 'rgb(25, 255, 255)',
-                data: dta
-            }]
-        },
     
-        // Configuration options go here
-        options: {
-            responsive: true,
-            legend: {
-                labels: {
-                    // This more specific font property overrides the global property
-                    fontSize: 50
-                }
-            },
-            scales: {
-                xAxes: [{
-                  type: 'linear',
-                  position: 'bottom',
-                  ticks: {
-                    min: -10,
-                    max: 100,
-                    stepSize: 10,
-                    fixedStepSize: 10,
-                  }
-                }],
-                yAxes: [{
-                  ticks: {
-                    min: 1,
-                    max: 50000,
-                    stepSize: 5000,
-                    fixedStepSize: 5000,
-                  }
-                }]
-              }
-               
-        }
-    });
 };
 
 
