@@ -73,8 +73,7 @@ enter.onclick = function(){
         top: 50000
       });
     }
-    
-    
+
     
 };
 

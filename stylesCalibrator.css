@@ -27,7 +27,7 @@ header * {
 }
 
 .socialMedia {
-  margin: 100px auto 0 auto;
+  margin: 25px auto 0 auto;
   max-width: 229px;
 }
 
@@ -64,6 +64,12 @@ li a:hover:not(.active) {
   padding-left: 50px;
 }
 
+#calculatorMine{
+  height: 360px !important;
+  width: 640px !important;
+  margin-left: 50px;
+  margin-top: 20px; 
+}
 
   Button {
     background-color: coral;     
