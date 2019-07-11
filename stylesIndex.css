@@ -36,8 +36,9 @@ body{
      padding: 5px; 
  }
 
-
-
+.mainBody{
+    margin: 10px;
+}
  
 
   li a {

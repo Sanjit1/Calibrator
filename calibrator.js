@@ -18,7 +18,7 @@ var test = document.getElementById("test");
 var testInput = document.getElementById("testResist");
 var answerTemp = document.getElementById("calculateTemp");
 var elt =document.getElementById('calculator');
-var calculator = Desmos.GraphingCalculator(elt,{expressions:true});
+var calculator = Desmos.GraphingCalculator(elt,{expressions:false});
 
 
 
@@ -53,12 +53,16 @@ enter.onclick = function(){
         BHtml.innerHTML = "B =" + Bsn;
         AHtml.innerHTML = "A =" + Asn;
 
+        document.getElementById("Cint").innerHTML = "double C =" + C +';';
+        document.getElementById("Bint").innerHTML = "double B =" + B +';';
+        document.getElementById("Aint").innerHTML = "double A =" + A +';';
+
         var Adsn = (A+'').replace("e-","/10^");
         var Bdsn = (B+'').replace("e-","/10^");
         var Cdsn = (C+'').replace("e-","/10^");
 
     
-    var equation ='x=1/(A+(B*\ln(y))+(C*\ln(y)^3))-273.15';
+    var equation ='x=1/(A+(B*\\ln(y))+(C*\\ln(y)^3))-273.15';
     calculator.setExpressions([
         {id:'curve', latex:equation ,color: Desmos.Colors.GREEN},
         {id:'A', latex: 'A = '+ Adsn ,color: Desmos.Colors.BLUE},
