@@ -33,11 +33,20 @@ calcButton.onclick = function(){
         resValList[j] = document.getElementById("R"+j).value;
         temValList[j] = document.getElementById("T"+j).value;
     } 
-    for(k = 0; k < nocval; k++){}
-
+    for(k = 0; k < nocval; k++){
+        var constuctor = [];
+        for(l =0; l<nocval;l++){
+            constuctor.push(k*Math.pow(ln(resValList[l])));
+        }
+        M1.push();
+    }
 };
 
 
 
 
 
+
+function ln(n){
+    return math.log(n,math.E); 
+}
