@@ -36,11 +36,16 @@ calcButton.onclick = function(){
     for(k = 0; k < nocval; k++){
         var constuctor = [];
         for(l = 0; l<nocval;l++){
-            constuctor.push(Math.pow(ln(resValList[k]),l));
+            constuctor.push(Math.pow(ln(resValList[k]/rRef),l));
         }
         M1.push(constuctor);
         M2.push(1/temValList[k]);
     }
+    const M3 = math.lusolve(M1,M2);
+    for(m = 0; m<nocval; m++){
+        document.getElementById("C"+m).innerHTML = "C<sub>"+(m+1)+"</sub> = "+M3[m]+" ;";
+    }
+
 };
 
 
