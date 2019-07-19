@@ -28,17 +28,18 @@ nocButton.onclick = function(){
 };
 
 calcButton.onclick = function(){
-    rRef = rRefInput.value;
+    rRef = parseFloat(rRefInput.value);
     for(j = 0; j<nocval; j++){
-        resValList[j] = document.getElementById("R"+j).value;
-        temValList[j] = document.getElementById("T"+j).value;
+        resValList[j] = parseFloat(document.getElementById("R"+j).value);
+        temValList[j] = parseFloat(document.getElementById("T"+j).value);
     } 
     for(k = 0; k < nocval; k++){
         var constuctor = [];
-        for(l =0; l<nocval;l++){
-            constuctor.push(k*Math.pow(ln(resValList[l])));
+        for(l = 0; l<nocval;l++){
+            constuctor.push(Math.pow(ln(resValList[k]),l));
         }
-        M1.push();
+        M1.push(constuctor);
+        M2.push(1/temValList[k]);
     }
 };
 

@@ -16,7 +16,7 @@ var testInput = document.getElementById("testResist");
 var answerTemp = document.getElementById("calculateTemp");
 var elt =document.getElementById('calculator');
 var calculator = Desmos.GraphingCalculator(elt,{expressions:false});
-
+var M1 = [];
 
 
 enter.onclick = function(){
@@ -29,7 +29,7 @@ enter.onclick = function(){
     if((R1!=R2)&&(R1!=R3)&&(R2!=R3)&&(T1!=T2)&&(T1!=T3)&&(T2!=T3)){
 
         
-        const M1 = [
+        M1 = [
             [1,ln(R1),cb(ln(R1))],
             [1,ln(R2),cb(ln(R2))],
             [1,ln(R3),cb(ln(R3))]
