@@ -21,6 +21,8 @@ header{
     position: sticky;
     position: -webkit-sticky;
 }
+
+
 header * {
    display: inline-block;
    padding: 5px;
@@ -36,12 +38,6 @@ header * {
    padding: 5px; 
 }
 
-#graph{
-  right: 0;
-  display: flex;
-  align-items: center;
-  padding-left: 50px;
-}
 
 li a {
   color: #000;
@@ -54,21 +50,6 @@ li a.active {
 
 li a:hover:not(.active) {
   color: firebrick;
-}
-
-#calculator{
-  height: 360px !important;
-  width: 640px !important;
-  margin-left:150px;
-  display: flex;
-  padding-left: 50px;
-}
-
-#calculatorMine{
-  height: 360px !important;
-  width: 640px !important;
-  margin-left: 50px;
-  margin-top: 20px; 
 }
 
   Button {
@@ -92,7 +73,6 @@ Button:hover {
     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 }
 
-
 .media{
   opacity: 0.7;
   transition: opacity .075s ease-in-out;
@@ -107,19 +87,27 @@ Button:hover {
   -webkit-transition: opacity .55s ease-in-out;
 }
 
-
-
-input{
-    width: 100px;
-    margin: 1px 10px;
+.grid-container {
+  display: grid;
+  
+  grid-template-columns: auto auto auto;
+}
+.grid-item {
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  text-align: center;
 }
 
-
-.hbox{
-    content: "";
-    clear: both;
-}
-
-.vbox{
-    float: left;
-}
+.item1 {
+  grid-column:1;
+  }
+  
+  .item2 {
+  grid-column:2;
+  }
+  
+  .item3 {
+  grid-column:3;
+  }
+  .item4{
+  grid-column:4;
+  }
