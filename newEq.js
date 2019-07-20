@@ -39,7 +39,7 @@ calcButton.onclick = function(){
             constuctor.push(Math.pow(ln(resValList[k]/rRef),l));
         }
         M1.push(constuctor);
-        M2.push(1/temValList[k]);
+        M2.push(1/(temValList[k]+273.15));
     }
     const M3 = math.lusolve(M1,M2);
     for(m = 0; m<nocval; m++){
