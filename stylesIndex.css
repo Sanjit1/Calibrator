@@ -22,7 +22,7 @@ body{
       position: -webkit-sticky;
   }
 
-
+  
  header * {
      display: inline-block;
      padding: 5px;
@@ -56,8 +56,8 @@ body{
     color: firebrick;
   }
 
-Button {
-    background-color:#ffb869;     
+  Button {
+    background-color:coral;     
     border: none;    
     color: black;    
     padding: 15px 32px;    
