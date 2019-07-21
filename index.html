@@ -14,23 +14,23 @@
             <ul>
                 <li><a href="https://www.github.com/Sanjit1/sanjit1.github.io"><h3 class ="nav">Page Source</h3></a></li>
                 <li><a href="/projects.html"><h3 class ="nav">Projects</h3></h3></li>
-                <li><a href=""><h3 class ="nav">School Stuff</h3></a></li>
+                  <li><a href=""><h3 class ="nav">School Stuff</h3></a></li>
+                  <li><a href=""><h3 class ="nav">Java Code Explanation</h3></a></li>
 
             </ul>
         </nav>
     </header>
     <div class="mainBody">
       <h1 class = "title">Thermistor Calculator</h1>
-      <h2>Introduction</h2>
-      <img class = "diagram" src = "" alt = "" width ="" height = "">
-      <p>Lets get into the details of Thermistors, and Thermistor Calibration. 
-        A thermistor is a resistor, whose resistance changes, based on the temperature.
-        We will be working with NTC thermistors. NTC thermistors are namded after the resistance they provide at 25 °C.
-        So a 10K thermistor should read about 10K resistance at 25°C. To find the Temperature using a thermistor,
-        we use an equation called the <a href="">Steinhart-hart Equation</a>. 
-        </p><br>
-        <p></p>
+      <p>
+        To calculate the temperature from the resistance of a thermistor, we need to use the Steinhart-hart equation.<br>
+        `1/T = A + BlnR + ClnR^3`<br>
+        Where T is temperature, R is resistance, and A,B,C are Steinhart coefficients, which vary from thermistor to thermistor.
+        To find the temperature, we need to find the three Steinhart coeffients.
 
+
+      </p>
+      
     </div>
 
 
@@ -39,7 +39,7 @@
 
 
 
-
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
     <div class = "socialMedia">
       <ul>
        <li><a href="https://www.github.com/Sanjit1"><img class = "media" src="Github.png" alt="Github" width="40" height="40"></a></li>
