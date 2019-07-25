@@ -57,14 +57,14 @@ enter.onclick = function(){
         A = M3[0];
         B = M3[1];
         C = M3[2];
-        Asn = (A+'').replace("e","10^"); // Convert to Sci not, I do not think it works too well
-        Bsn = (B+'').replace("e","10^");
-        Csn = (C+'').replace("e","10^");
 
 
         document.getElementById("C").innerHTML = "double C =" + C +';'; // Set the calculated values
         document.getElementById("B").innerHTML = "double B =" + B +';';
         document.getElementById("A").innerHTML = "double A =" + A +';';
+        var Adsn = (A+'').replace("e-","/10^"); // Convert to Sci method
+        var Bdsn = (B+'').replace("e-","/10^");
+        var Cdsn = (C+'').replace("e-","/10^");
 
     var equation ='x=1/(A+(B*\\ln(y))+(C*\\ln(y)^3))-273.15'; // Make the text equation
     calculator.setExpressions([

@@ -26,6 +26,7 @@
   },
   "homepage": "https://sanjit1.github.io/Calibrator",
   "dependencies": {
+    "mathjax": "^2.7.5",
     "mathjs": "^6.0.3",
     "requirejs": "^2.3.6"
   }
