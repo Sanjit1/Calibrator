@@ -1,0 +1,32 @@
+{
+  "name": "calibrator",
+  "version": "1.0.0",
+  "description": "Calibrator for NPM thermistors",
+  "main": "oldEq.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sanjit1/Calibrator.git"
+  },
+  "keywords": [
+    "math",
+    "Matrix",
+    "Thermistor",
+    "NPM",
+    "Calibrator",
+    "Scioly",
+    "Arduino"
+  ],
+  "author": "Sanjit Sarda",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Sanjit1/Calibrator/issues"
+  },
+  "homepage": "https://sanjit1.github.io/Calibrator",
+  "dependencies": {
+    "mathjs": "^6.0.3",
+    "requirejs": "^2.3.6"
+  }
+}
