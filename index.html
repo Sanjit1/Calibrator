@@ -8,7 +8,7 @@
   
 </head>
 <body>
-    <header>
+    <header style ="z-index: 1;">
         <a href="../index.html"><img src="Sanjit.png" alt="Home" width="40" height="40"></a>
         <nav>
             <ul>
@@ -23,19 +23,44 @@
     <div class="mainBody">
       <h1 class = "title">Thermistor Calculator</h1>
       <p>
-        To calculate the temperature from the resistance of a thermistor, you need to use the Steinhart-hart equation.<br>
-        `1/T = A + BlnR + ClnR^3`<br>
+        To calculate the temperature from the resistance of a thermistor, you need to use the Steinhart-hart equation.<br><br>
+        `1/T = A + BlnR + ClnR^3`<br><br>
         Where T is temperature, R is resistance, and A,B,C are Steinhart coefficients, which vary from thermistor 
         to thermistor. This page explains how to find the the three Steinhart-hart coefficients, to find the equation 
         for a thermistor, since different thermistor have different coefficients. You can easily find a few temperature 
         values, and the resistance values they produce, as an affect of the temperature. So you can make a system 
         of equations of the Steinhart equation. Since there are 3 variables, 3 corresponding values are needed. 
         Once you have 3 values then you can make a system of equations with three steinhart equations with 3 known
-        resistance and temperature values:
-        `1/T<sub>1</sub> = A + BlnR + ClnR^3`<br>
-        `1/T = A + BlnR + ClnR^3`<br>
-        `1/T = A + BlnR + ClnR^3`<br>
+        resistance and temperature values:<br><br>
+        `1/T_1 = A + BlnR_1 + Cln^3R_1`<br>
+        `1/T_2 = A + BlnR_2 + Cln^3R_2`<br>
+        `1/T_3 = A + BlnR_3 + Cln^3R_3`<br><br>
+        which can be made written in matrix form:<br>
+        
 
+        \[
+        \begin{bmatrix}
+          1 & \ln R_1 & \ln^3 R_1 \\
+          1 & \ln R_2 & \ln^3 R_2 \\
+          1 & \ln R_3 & \ln^3 R_3
+       \end{bmatrix}\begin{bmatrix}
+          A \\
+          B \\
+          C
+       \end{bmatrix} = \begin{bmatrix}
+         \frac{1}{T_1} \\
+         \frac{1}{T_2} \\
+         \frac{1}{T_3}
+       \end{bmatrix}
+      \]
+
+
+
+
+      After solving the equation, you should double check the equations graph make sure to look at the range and domain
+      too. It should look similar to this:<br><br>
+      <img src="diagrams/graph.jpg" alt="dsg"><br>
+           
 
       </p>
       
