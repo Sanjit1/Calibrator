@@ -26,10 +26,8 @@
         <li><a href="">
             <h3 class="nav">School Stuff</h3>
           </a></li>
-        <li><a href="">
-            <h3 class="nav">Java Code Explanation</h3>
-          </a></li>
-
+          <li><a href="https://github.com/Sanjit1/Calibrator/issues"><h3>Report an issue</h3></a></li>  
+          <li><a href="/Calibrator/webCalibrator.html"><h3>Web Calibrator</h3></a></li>
       </ul>
     </nav>
   </header>
@@ -96,10 +94,9 @@
       Copy whichever libraries you will be using, based on what hardware you are using, from below. 
       If you do not have these libraries from before, then you should go to the library manager, and install them.
       <pre class = "line-numbers">
-        <code class="language-arduino">  #include &lt;Wire.h&gt;
-          #include &lt;Adafruit_ADS1015.h&gt;
-          #include &lt;LiquidCrystal.h&gt; </code>
-      </pre>
+        <code class="language-arduino">  #include &lt;Wire.h&gt;; // wire library
+          #include &lt;Adafruit_ADS1015.h&gt;; // ADS1115 library
+          #include &lt;LiquidCrystal.h&gt;; // LCD </code></pre><br>
       
       Lets declare the Steinhart coefficients. If you used my Java Calibrator, 
       then you can use the Copy as Arduino declaration button and paste that instead of the code below.
@@ -109,109 +106,91 @@
       <pre class = "line-numbers">
         <code class="language-arduino">  double A = 0.0021085081731127137; // Steinhart coefficients
           double B = 0.00007979204726779823;
-          double C = 6.535076314649466*10^-7;</code>
-      </pre>
+          double C = 6.535076314649466*10^-7;</code></pre><br>
       If you are using an ADC or an LCD, declare their variables too
       <pre class="line-numbers">
-        <code class="language-arduino">  Adafruit_ADS1115 ads1115(0x49);
-          LiquidCrystal screen(12, 11, 5, 4, 3, 2);  </code>
-      </pre>
+        <code class="language-arduino">  Adafruit_ADS1115 ads1115(0x49); //ADS1115 object
+          LiquidCrystal screen(12, 11, 5, 4, 3, 2); //LCD object </code></pre><br>
 
 
       Next you should declare some other variables that you need for your code:
       <pre class = "line-numbers">
         <code class = "language-arduino">  double opVolt = 5; // The voltage at which Arduino operates
           double basRes = 10000; // rRef( reference resistance)
-          double e = 2.7182818284590452353602874713527; </code>
-      </pre>
+          double e = 2.7182818284590452353602874713527; // E </code></pre><br>
     
       If you are using an RGB led, then Include this code
       <pre class = "line-numbers">
-        <code class = "language-arduino">  int r = 8, g = 9, b = 10;</code>
-      </pre>
+        <code class = "language-arduino">  int r = 8, g = 9, b = 10; //rgb pins</code></pre><br>
     
       If you are using an Speaker, then Include this code
       <pre class = "line-numbers">
-        <code class = "language-arduino">  int s = 7;</code>
-      </pre>
+        <code class = "language-arduino">  int s = 7; //Speaker pin</code></pre><br>
       
 
       Now lets write our setup code:
       <pre class = "line-numbers">
-       <code class = "language-arduino">  void setup(){
-        </code>
-      </pre>
+       <code class = "language-arduino">  void setup(){ // setup code</code></pre><br>
 
       If you are using an RGB LED then include this code:
       <pre class = "line-numbers">
         <code class = "language-arduino">  pinMode(r, OUTPUT);// Set the pinMode of all the colors of the rgb led.
           pinMode(g, OUTPUT);
-          pinMode(b, OUTPUT);</code>
-      </pre>
+          pinMode(b, OUTPUT);</code></pre><br>
 
       If you are using a Speaker then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  pinMode(s,OUTPUT);//Set the pinMode to OUTPUT</code>
-      </pre>
+        <code class = "language-arduino">  pinMode(s,OUTPUT);//Set the pinMode to OUTPUT</code></pre><br>
 
       If you are using an LCD then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  screen.begin(16, 2); // Start the screen of the LCD.</code>
-      </pre>
+        <code class = "language-arduino">  screen.begin(16, 2); // Start the screen of the LCD.</code></pre><br>
 
       If you are using Serial to display the temperature then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  Serial.begin(9600); // Start the Serial Interface.</code>
-      </pre>
+        <code class = "language-arduino">  Serial.begin(9600); // Start the Serial Interface.</code></pre><br>
 
       If you are using an External ADC then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  ads1115.begin(); // Initialise the adc</code>
-      </pre>
+        <code class = "language-arduino">  ads1115.begin(); // Initialise the adc</code></pre><br>
       
       Now close the setup tag with a }
 
       Now lets go to the loop. Replace the pin? with an int: the pin at which you attach the thermistor. 
       If you are using an external ADC then just put the number, but if you are not, then put A-pinNumber, like A0.
       <pre class = "line-numbers">
-        <code class = "language-arduino">  void loop(){
-            int temp = getTemp(pin?,A,B,C);</code>
-      </pre>
+        <code class = "language-arduino">  void loop(){ // Loop code
+            int temp = getTemp(pin?,A,B,C);</code></pre><br>
       
       If you are using the RGB led, then add this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  if(temp&lt;=18) { 
-            digitalWrite(b,HIGH);
-            digitalWrite(g,LOW);
-            digitalWrite(r,LOW);
-          } else 
-          if(temp&gt;18 && temp&lt;40) {
-            digitalWrite(b,LOW);
-            digitalWrite(g,HIGH);
-            digitalWrite(r,LOW);
-          } else 
-          if(temp&gt;=40) {
-            digitalWrite(b,LOW);
-            digitalWrite(g,LOW);
-            digitalWrite(r,HIGH);
-          }</code>
-      </pre>
+        <code class = "language-arduino">  if(temp&lt;=18) { // if temp is less than 18 
+            digitalWrite(b,HIGH); // turn b on
+            digitalWrite(g,LOW); // turn g off
+            digitalWrite(r,LOW); // turn r off
+          } else // else
+          if(temp&gt;18 && temp&lt;40) { // if temp is between 18 & 40
+            digitalWrite(b,LOW); // turn b off
+            digitalWrite(g,HIGH); // turn g on
+            digitalWrite(r,LOW); // turn r off
+          } else // else
+          if(temp&gt;=40) { // if temp is more than 40
+            digitalWrite(b,LOW); // turn b off
+            digitalWrite(g,LOW); // turn g off
+            digitalWrite(r,HIGH); // turn r on
+          }</code></pre><br>
 
       If you are using a Speaker then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  if(temp>60){digitalWrite(s,HIGH);} else {digitalWrite(s,LOW);}</code>
-      </pre>
+        <code class = "language-arduino">  if(temp>60){digitalWrite(s,HIGH);} else {digitalWrite(s,LOW);} // if temp if more than 60, then turn the speaker on, else turn it off</code></pre><br>
 
       If you are using an LCD then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  screen.clear();
-          screen.print("Temp = "+ temp); </code>
-      </pre>
+        <code class = "language-arduino">  screen.clear(); // clear the screen
+          screen.print("Temp = "+ temp); // print temp on the screen </code></pre><br>
       If you are using the Serial port then include this code:
       <pre class = "line-numbers">
-        <code class = "language-arduino">  screen.clear();
-          Serial.println("Temp = "+ temp); </code>
-      </pre>
+        <code class = "language-arduino">  Serial.println("Temp = "+ temp); // print the Temp on the serial port</code></pre><br>
       
       Now close the loop tag with a }
 
@@ -226,8 +205,7 @@
           double getR(int pin) {
             double v = getV(pin);
             return (basRes * (opVolt - v) / v); // use the simplified voltage divider equation to find resistance 
-          } </code>
-      </pre>
+          } </code></pre><br>
 
       If you are using an external ADC, then type
       <pre class = "line-numbers">
@@ -238,8 +216,7 @@
              * Since there are 32768 values possible, giving a range of 6.144 volts, we need to divide by 32768 and multiply by 6.144 volts.
              */
             return volt;
-          }</code>
-      </pre>
+          }</code></pre><br>
 
       If you are using the internal ADC, then type
       <pre class = "line-numbers">
@@ -250,8 +227,7 @@
              * Since there are 1024 values possible, giving a range of 5 volts, we need to divide by 1024 and multiply by 5 volts.
              */
             return volt;
-          }</code>
-      </pre>
+          }</code></pre><br>
 
       Now you need to write the ln and cb functions
       <pre class = "line-numbers">
@@ -263,14 +239,12 @@
           double cb(double val) {
             return val * val * val;
             // cube function, cuz why not
-          }  </code>
-      </pre>  
+          }  </code></pre><br>
 
-      </p>
+          Autoformat your code, and that should be it!
+          
 
-      And that should be it!
-
-    
+      </p>    
   </div>
 
   <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>

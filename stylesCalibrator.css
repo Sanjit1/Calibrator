@@ -51,25 +51,25 @@ li a:hover:not(.active) {
   color: firebrick;
 }
 
-  Button {
-    background-color: coral;     
-    border: none;    
-    color: black;    
-    padding: 15px 32px;    
-    text-align: center;    
-    text-decoration: none;    
-    display: inline-block;    
-    font-size: 16px;    
-    margin: 4px 2px;   
-    border-radius: 4px;
-    border: 2px solid #f44336;
-    -webkit-transition-duration: 0.4s;    
-    transition-duration: 0.4s;
+Button {
+  background-color:#ffe0b3;     
+  border: none;    
+  color: black;    
+  padding: 15px 32px;    
+  text-align: center;    
+  text-decoration: none;    
+  display: inline-block;    
+  font-size: 16px;    
+  margin: 4px 2px;   
+  border-radius: 4px;
+  border: 2px solid #f44336;
+  -webkit-transition-duration: 0.4s;    
+  transition-duration: 0.4s;
 }
 Button:hover {
-    background-color: chocolate;     
-    color: black; 
-    box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
+  background-color: #7cb4c2;        
+  color: black; 
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19)
 }
 
 .media{
