@@ -6,9 +6,6 @@ body{
     display: block;
 }
 
-.title {
-    text-align: center;
-}
 
 
   header{
@@ -93,3 +90,14 @@ Button:hover {
     -webkit-transition: opacity .55s ease-in-out;
 }
   
+p a {
+    text-decoration: none;  
+    color: olive;
+}
+p a:visited{
+    color: olivedrab;
+}
+
+p a:hover{
+    color: darkslateblue;
+}

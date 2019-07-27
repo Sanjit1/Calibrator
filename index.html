@@ -1,70 +1,103 @@
 <!DOCTYPE html>
 <html>
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="shortcut icon" type="image/png" href="Sanjit.png" />
   <link rel="stylesheet" href="stylesIndex.css">
-  <title>Sanjit Sarda</title>
-  
+  <link href="prism.css" rel="stylesheet" />
+  <link href="https://myCDN.com/prism@v1.x/themes/prism.css" rel="stylesheet" />
+  <title>Thermistor Calibration</title>
+
 </head>
+
 <body>
-    <header style ="z-index: 1;">
-        <a href="../index.html"><img src="Sanjit.png" alt="Home" width="40" height="40"></a>
-        <nav>
-            <ul>
-                <li><a href="https://www.github.com/Sanjit1/Calibrator"><h3 class ="nav">Page Source</h3></a></li>
-                <li><a href="/projects.html"><h3 class ="nav">Projects</h3></h3></li>
-                  <li><a href=""><h3 class ="nav">School Stuff</h3></a></li>
-                  <li><a href=""><h3 class ="nav">Java Code Explanation</h3></a></li>
+  <header style="z-index: 1;">
+    <a href="../index.html"><img src="Sanjit.png" alt="Home" width="40" height="40"></a>
+    <nav>
+      <ul>
+        <li><a href="https://www.github.com/Sanjit1/Calibrator">
+            <h3 class="nav">Page Source</h3>
+          </a></li>
+        <li><a href="/projects.html">
+            <h3 class="nav">Projects</h3>
+            </h3>
+        </li>
+        <li><a href="">
+            <h3 class="nav">School Stuff</h3>
+          </a></li>
+        <li><a href="">
+            <h3 class="nav">Java Code Explanation</h3>
+          </a></li>
 
-            </ul>
-        </nav>
-    </header>
-    <div class="mainBody">
-      <h1 class = "title">Thermistor Calculator</h1>
-      <p>
-        To calculate the temperature from the resistance of a thermistor, you need to use the Steinhart-hart equation.<br><br>
-        `1/T = A + BlnR + ClnR^3`<br><br>
-        Where T is temperature, R is resistance, and A,B,C are Steinhart coefficients, which vary from thermistor 
-        to thermistor. This page explains how to find the the three Steinhart-hart coefficients, to find the equation 
-        for a thermistor, since different thermistor have different coefficients. You can easily find a few temperature 
-        values, and the resistance values they produce, as an affect of the temperature. So you can make a system 
-        of equations of the Steinhart equation. Since there are 3 variables, 3 corresponding values are needed. 
-        Once you have 3 values then you can make a system of equations with three steinhart equations with 3 known
-        resistance and temperature values:<br><br>
-        `1/T_1 = A + BlnR_1 + Cln^3R_1`<br>
-        `1/T_2 = A + BlnR_2 + Cln^3R_2`<br>
-        `1/T_3 = A + BlnR_3 + Cln^3R_3`<br><br>
-        which can be made written in matrix form:<br>
-        
+      </ul>
+    </nav>
+  </header>
+  <div class="mainBody">
+    <h1>Guide to NPN thermistors</h1>
+    <h2 class="title">Coefficient Calculation</h2>
+    <p>
+      To calculate the temperature from the resistance of a thermistor, you need to use the Steinhart-hart
+      equation.<br><br>
+      `1/T = A + BlnR + ClnR^3`<br><br>
+      Where T is temperature, R is resistance, and A,B,C are Steinhart coefficients, which vary from thermistor
+      to thermistor. This page explains how to find the the three Steinhart-hart coefficients, to find the equation
+      for a thermistor, since different thermistor have different coefficients. You can easily find a few temperature
+      values, and the resistance values they produce, as an affect of the temperature. So you can make a system
+      of equations of the Steinhart equation. Since there are 3 variables, 3 corresponding values are needed.
+      Once you have 3 values then you can make a system of equations with three Steinhart equations with 3 known
+      resistance and temperature values:<br><br>
+      `1/T_1 = A + BlnR_1 + Cln^3R_1`<br>
+      `1/T_2 = A + BlnR_2 + Cln^3R_2`<br>
+      `1/T_3 = A + BlnR_3 + Cln^3R_3`<br><br>
+      which can be made written in matrix form:<br>
 
-        \[
-        \begin{bmatrix}
-          1 & \ln R_1 & \ln^3 R_1 \\
-          1 & \ln R_2 & \ln^3 R_2 \\
-          1 & \ln R_3 & \ln^3 R_3
-       \end{bmatrix}\begin{bmatrix}
-          A \\
-          B \\
-          C
-       \end{bmatrix} = \begin{bmatrix}
-         \frac{1}{T_1} \\
-         \frac{1}{T_2} \\
-         \frac{1}{T_3}
-       \end{bmatrix}
+
+      \[
+      \begin{bmatrix}
+      1 & \ln R_1 & \ln^3 R_1 \\
+      1 & \ln R_2 & \ln^3 R_2 \\
+      1 & \ln R_3 & \ln^3 R_3
+      \end{bmatrix}\begin{bmatrix}
+      A \\
+      B \\
+      C
+      \end{bmatrix} = \begin{bmatrix}
+      \frac{1}{T_1} \\
+      \frac{1}{T_2} \\
+      \frac{1}{T_3}
+      \end{bmatrix}
       \]
 
-
+      Apart from using matrices to calculate the Steinhart-hart equation, you can use one of my calibrators:<br>
+      <a href="/webCalibrator.html">Online Calibrator</a><br>
+      <a href="https://sanjit1.github.io/CalibratorJava">Java Calibrator</a><br><br>
 
 
       After solving the equation, you should double check the equations graph make sure to look at the range and domain
       too. It should look similar to this:<br><br>
       <img src="diagrams/graph.jpg" alt="dsg"><br>
-           
+    </p>
+    <h2>Using Thermistors with Arduino</h2>
+    <p>
+      <h3>READ CAREFULLY:</h3>
+      I am writing code in multiple functions, kind of like a build your own PC, so do not just copy everything and 
+      run away. Read Everything in detail otherwise you will run into errors. I am also including comments, to
+      ease that burden.<br>
+      First declare the Steinhart coefficients. If you used my Java Calibrator, 
+      then you can use the Copy as Arduino declaration button and paste that instead of the code below.
+      I am also including values, that will probably have a +- 2°C accuracy for people who do not have means to calibrate
+      But if you calibrate your thermistor really carefully, you will have an accuracy of +- 0.02°C. 
 
-      </p>
-      
-    </div>
+      <pre class = "line-numbers">
+        <code class="language-arduino">  double A = 0.0021085081731127137; // Steinhart coefficients
+          double B = 0.00007979204726779823;
+          double C = 6.535076314649466*10^-7;</code>
+      </pre>
+    </p>
+
+    
+  </div>
 
 
 
@@ -72,13 +105,19 @@
 
 
 
-    <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
-    <div class = "socialMedia">
-      <ul>
-       <li><a href="https://www.github.com/Sanjit1"><img class = "media" src="Github.png" alt="Github" width="40" height="40"></a></li>
-       <li><a href="https://www.reddit.com/u/sanjsarda"><img class = "media" src="Reddit.png" alt="Reddit" width="40" height="40"></a></li>
-       <li><a href="index.html"><img class = "media" src="Instagram.png" alt="Insta" width="40" height="40"></a></li>
-      </ul>
-    </div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-MML-AM_CHTML' async></script>
+  <script src="https://myCDN.com/prism@v1.x/components/prism-core.min.js"></script>
+  <script src="https://myCDN.com/prism@v1.x/plugins/autoloader/prism-autoloader.min.js"></script>
+  <script src="prism.js"></script>
+  <div class="socialMedia">
+    <ul>
+      <li><a href="https://www.github.com/Sanjit1"><img class="media" src="Github.png" alt="Github" width="40"
+            height="40"></a></li>
+      <li><a href="https://www.reddit.com/u/sanjsarda"><img class="media" src="Reddit.png" alt="Reddit" width="40"
+            height="40"></a></li>
+      <li><a href="index.html"><img class="media" src="Instagram.png" alt="Insta" width="40" height="40"></a></li>
+    </ul>
+  </div>
 </body>
+
 </html>
