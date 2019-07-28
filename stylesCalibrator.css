@@ -114,3 +114,15 @@ Button:hover {
   grid-column:4;
   grid-row: 1/span 4;
   }
+
+  p a {
+    text-decoration: none;  
+    color: cornflowerblue;
+}
+p a:visited{
+    color: dodgerblue;
+}
+
+p a:hover{
+    color: darkslateblue;
+}

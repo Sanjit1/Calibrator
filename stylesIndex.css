@@ -92,10 +92,10 @@ Button:hover {
   
 p a {
     text-decoration: none;  
-    color: olive;
+    color: cornflowerblue;
 }
 p a:visited{
-    color: olivedrab;
+    color: dodgerblue;
 }
 
 p a:hover{
